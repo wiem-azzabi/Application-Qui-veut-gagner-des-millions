@@ -15,15 +15,23 @@ class joueur
     int id;
 	string nom;
 	double score;
+    int tabjocker[4]={1,1,1,1};
+
 
     public:
-    joueur(string,int score=0);
-    void setscore(int const&);
+    joueur(string);
+    void setscore(int& );
+    void setgain(int& );
+
     int getid() const;
     void setid();
+
     string getnom() const;
 	int getscore() const;
 	void afficher() const;
+
+	bool verif(const int&)const;
+    void settabjocker(const int&);
 
 };
 #endif // JOUEUR_H
