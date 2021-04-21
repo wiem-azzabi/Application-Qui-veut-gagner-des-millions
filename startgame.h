@@ -6,24 +6,30 @@ class startgame : public wxFrame
 private:
 
 	wxStaticText* questiontitle = nullptr;
-	wxStaticText* questiocount_text = nullptr;
+	wxStaticText* questioncount_text = nullptr;
 
-	wxButton* reponse1_btn = nullptr;
-	wxButton* reponse2_btn = nullptr;
-	wxButton* reponse3_btn = nullptr;
-	wxButton* reponse4_btn = nullptr;
+	wxRadioButton* reponse1_btn = nullptr;
+	wxRadioButton* reponse2_btn = nullptr;
+	wxRadioButton* reponse3_btn = nullptr;
+	wxRadioButton* reponse4_btn = nullptr;
+
+	wxBitmapButton* switch_btn = nullptr;
+	wxBitmapButton* cinquante_btn = nullptr;
+	wxBitmapButton* appelami_btn = nullptr;
+	wxBitmapButton* avispublique_btn = nullptr;
 
 
 	wxButton* next = nullptr;
-
 	wxButton* verify_btn = nullptr;
-
 	int question_count = 1;
+
 public:
 	startgame();
 	~startgame();
+	void onverify(wxCommandEvent& evt);
 	void onnext(wxCommandEvent& evt);
-	void OnClose(wxCloseEvent&);
+
+	void onclose(wxCloseEvent&);
 
 	wxDECLARE_EVENT_TABLE();
 };
