@@ -1,12 +1,9 @@
 #pragma once
 #include <wx/wx.h>
-#include "joueur.h"
-#include "startgame.h"
-#include "background.h"
-#include <wx/wx.h>
-#include <string>
 #include <fstream>
-#include <wx/msgdlg.h>
+#include "joueur.h"
+#include "background.h"
+using namespace std;
 
 class startgame : public wxFrame
 {
@@ -34,6 +31,7 @@ private:
 	int question_count =1;
 	size_t i =0;
 	
+	joueur* j1;
 	int level = 1;
 public:
 	startgame();

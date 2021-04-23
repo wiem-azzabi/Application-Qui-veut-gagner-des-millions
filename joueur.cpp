@@ -1,16 +1,4 @@
 #include "joueur.h"
-#include <iostream>
-#include <fstream>
-#include <string.h>
-#include <string>
-#include <iomanip>//time
-
-#include <Windows.h>//gotoxy
-#include <conio.h>//getch
-
-#include <wx/msgdlg.h>
-#include <wx/wx.h>
-using namespace std;
 
 joueur::joueur(string ch)
 {
@@ -64,7 +52,7 @@ int joueur::getid() const
 }
 void joueur::setid()
 {
-    int x;
+    int x = 0;
 
     ifstream entree("id.txt", ios::in);
     if (entree)
@@ -77,7 +65,7 @@ void joueur::setid()
             if (!ligne.empty())
                 ch = ligne;
         };
-      
+
         x = stoi(ch) + 1;
         id = x;
     }
@@ -102,5 +90,5 @@ int joueur::getscore() const
 }
 void joueur::afficher() const
 {
-    cout << id << setw(15) << nom << setw(10) << score << setw(6) << endl;
+    //cout << id << setw(15) << nom << setw(10) << score << setw(6) << endl;
 }

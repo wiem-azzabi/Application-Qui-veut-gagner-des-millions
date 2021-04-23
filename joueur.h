@@ -1,16 +1,5 @@
-#ifndef JOUEUR_H
-#define JOUEUR_H
-#include <iostream>
+#include "wx/wx.h"
 #include <fstream>
-#include <string.h>
-#include <string>
-#include <iomanip>//time
-
-#include <Windows.h>//gotoxy
-#include <conio.h>//getch
-
-#include <wx/msgdlg.h>
-#include <wx/wx.h>
 
 using namespace std;
 class joueur
@@ -42,5 +31,3 @@ public:
     //friend class startgame;
 
 };
-#endif // JOUEUR_H
-

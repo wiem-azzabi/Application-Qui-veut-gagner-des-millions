@@ -1,8 +1,4 @@
 #include "cMain.h"
-#include "startgame.h" // Needed to create startgame frame
-#include "Login.h"
-#include "FenetreInstructions.h"
-#include "MyFrame.h"
 
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
  EVT_BUTTON(1000, onexit)
@@ -70,22 +66,22 @@ void cMain::onlogin(wxCommandEvent& evt) {
 }
 
 void cMain::onclick_liste_joueurs(wxCommandEvent& evt) {
-	FenetreJoueur_frame = new FenetreJoueur();
-	FenetreJoueur_frame->Show();
+	//FenetreJoueur_frame = new FenetreJoueur();
+	//FenetreJoueur_frame->Show();
 	this->Close();
 	evt.Skip();
 }
 
 void cMain::onclick_instructions(wxCommandEvent& evt) {
-	Instructions_frame = new FenetreInstructions();
-	Instructions_frame->Show();
+	//Instructions_frame = new FenetreInstructions();
+	//Instructions_frame->Show();
 	this->Close();
 	evt.Skip();
 }
 
 void cMain::onclickclock(wxCommandEvent& evt) {
-    clockframe= new MyFrame();
-	clockframe->Show();
+    //clockframe= new MyFrame();
+	//clockframe->Show();
 	this->Close();
 	evt.Skip();
 }

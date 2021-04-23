@@ -1,18 +1,18 @@
 #pragma once
 #include "wx/wx.h"
 #include "Login.h"
-#include "FenetreJoueur.h"
-#include "FenetreInstructions.h"
-#include "background.h"
-#include "MyFrame.h"
+//#include "FenetreJoueur.h"
+//#include "FenetreInstructions.h"
+//#include "background.h"
+//#include "MyFrame.h"
 
 class cMain : public wxFrame
 {
 private:
-	FenetreJoueur* FenetreJoueur_frame = nullptr;
+	//FenetreJoueur* FenetreJoueur_frame = nullptr;
 	Login* loginframe = nullptr;
-	FenetreInstructions* Instructions_frame = nullptr;
-	MyFrame* clockframe = nullptr;
+	//FenetreInstructions* Instructions_frame = nullptr;
+	//MyFrame* clockframe = nullptr;
 
 	// Controls
 	wxStaticText* title = nullptr;

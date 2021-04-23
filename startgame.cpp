@@ -1,12 +1,8 @@
-#include "startgame.h"
-#include "background.h"
-#include "joueur.h"
-#include <wx/wx.h>
-#include <string>
-#include <fstream>
-#include <wx/msgdlg.h>
-using namespace std;
 
+#include "startgame.h"
+
+
+using namespace std;
 
 wxBEGIN_EVENT_TABLE(startgame, wxFrame)
 EVT_BUTTON(1000, onnext)
@@ -42,8 +38,10 @@ startgame::startgame() : wxFrame(nullptr, wxID_ANY, "", wxPoint(0, 0), wxSize(20
 	};
 
 	///initialiser joueur 
-	joueur j1("nom");
-	//j1.setid();
+	j1=new joueur("nom");
+	j1->setid();
+	wxMessageBox(j1->getnom());
+
 
 	///les elements du frame
 	questiontitle = new wxStaticText(this, wxID_ANY, "", wxPoint(300, 458));
@@ -106,7 +104,7 @@ void startgame::onverify(wxCommandEvent& evt)
 			|| (T[i][5].rfind("c") == 0 && reponse3_btn->GetValue()) || (T[i][5].rfind("d") == 0 && reponse4_btn->GetValue()))
 		{
 			wxMessageBox(wxT("correct answer"));
-			//j1.setgain(level);
+			j1->setgain(level);
 			
 		}
 		else
@@ -139,8 +137,15 @@ void startgame::onverify(wxCommandEvent& evt)
 		reponse4_btn->SetValue(false);
 	}
 	else {
-		//message
-	}
+		int score = j1->getscore();
+		string nom = j1->getnom();
+		int id = j1->getid();
+
+		ofstream sortie("joueur.txt", ios::app);
+		sortie << "nom:  " << nom << "   id:  " << id << "   score:  " << score << endl;
+		sortie.close();
+		
+		}
 	evt.Skip();
 }
 

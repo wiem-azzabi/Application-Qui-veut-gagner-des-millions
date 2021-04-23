@@ -1,6 +1,6 @@
 #include"Login.h"
 #include"cMain.h"
-#include"startgame.h"
+
 using namespace std;
 
 wxBEGIN_EVENT_TABLE(Login, wxFrame)
