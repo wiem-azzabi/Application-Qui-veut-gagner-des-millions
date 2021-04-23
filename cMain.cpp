@@ -1,14 +1,15 @@
 #include "cMain.h"
 #include "startgame.h" // Needed to create startgame frame
-#include "startgamedouble.h"
+#include "Login.h"
 #include "FenetreInstructions.h"
+#include "MyFrame.h"
 
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
  EVT_BUTTON(1000, onexit)
- EVT_BUTTON(1001, onstartgame)
- EVT_BUTTON(1004, onstartgamedouble)
+ EVT_BUTTON(1001, onlogin)
  EVT_BUTTON(1002, onclick_liste_joueurs)
  EVT_BUTTON(1003, onclick_instructions)
+ EVT_BUTTON(1009, onclickclock)
 wxEND_EVENT_TABLE()
 
 cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Qui veut gagner des millions?", wxPoint(300, 100), wxSize(1000, 700)) 
@@ -18,11 +19,10 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Qui veut gagner des millions?", wxP
 	title = new wxStaticText(this, wxID_ANY, "Qui veut ganger des millions?", wxPoint(100, 100));
 	title->SetFont(wxFont(44, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-	btn_startgame = new wxButton(this, 1001, "Jouer", wxPoint(300, 300), wxSize(400, 40));
-	btn_startgame->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	btn_login = new wxButton(this, 1001, "Jouer", wxPoint(300, 300), wxSize(400, 40));
+	btn_login->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-	btn_startgame = new wxButton(this, 1004, "Jouer en deux", wxPoint(300, 350), wxSize(400, 40));
-	btn_startgame->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	
 
 
 	bouton_liste_joueurs = new wxButton(this, 1002, "Historique des parties", wxPoint(300, 450), wxSize(400, 40));
@@ -34,18 +34,20 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Qui veut gagner des millions?", wxP
 	exit = new wxButton(this, 1000, "Exit", wxPoint(700, 600), wxSize(100, 40));
 	exit->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
+	clock= new wxButton(this, 1009, "clock", wxPoint(700, 670), wxSize(100, 40));
+
+
 	this->SetBackgroundColour(wxColor(143,132,255));
 
 }
 
 cMain::~cMain() {
 	delete title;
-	delete btn_startgame;
+	delete btn_login;
 	delete exit;
 	delete bouton_liste_joueurs;
 	delete bouton_instructions;
 
-	delete btn_startgamedouble;
 }
 
 void cMain::onexit(wxCommandEvent& evt) {
@@ -53,15 +55,16 @@ void cMain::onexit(wxCommandEvent& evt) {
 	evt.Skip();
 }
 
-void cMain::onstartgame(wxCommandEvent& evt) {
+/*void cMain::onstartgame(wxCommandEvent& evt) {
 	startgame_frame = new startgame(); //constructeur de startgame
 	startgame_frame->Show();
 	this->Close();
 	evt.Skip();
-}
-void cMain::onstartgamedouble(wxCommandEvent& evt) {
-	startgamedouble_frame = new startgamedouble(); //constructeur de startgamedouble
-	startgamedouble_frame->Show();
+}*/
+
+void cMain::onlogin(wxCommandEvent& evt) {
+	loginframe = new Login(); //constructeur de Login
+	loginframe->Show();
 	this->Close();
 	evt.Skip();
 }
@@ -76,6 +79,13 @@ void cMain::onclick_liste_joueurs(wxCommandEvent& evt) {
 void cMain::onclick_instructions(wxCommandEvent& evt) {
 	Instructions_frame = new FenetreInstructions();
 	Instructions_frame->Show();
+	this->Close();
+	evt.Skip();
+}
+
+void cMain::onclickclock(wxCommandEvent& evt) {
+    clockframe= new MyFrame();
+	clockframe->Show();
 	this->Close();
 	evt.Skip();
 }

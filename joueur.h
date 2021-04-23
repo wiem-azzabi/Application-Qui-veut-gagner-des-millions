@@ -5,10 +5,13 @@
 #include <string.h>
 #include <string>
 #include <iomanip>//time
-#include <ctime>
+
 #include <Windows.h>//gotoxy
 #include <conio.h>//getch
-#include <MMsystem.h>
+
+#include <wx/msgdlg.h>
+#include <wx/wx.h>
+
 using namespace std;
 class joueur
 {
@@ -33,10 +36,10 @@ public:
     int getscore() const;
     void afficher() const;
 
-    bool verif(const int&)const;
-    void settabjocker(const int&);
+    bool verif(const int&)const; ///verif si jocker numero i est encore disponible (valeur 1)
+    void settabjocker(const int&);///supprime le jocker numero i (valeur 0)
 
-
+    //friend class startgame;
 
 };
 #endif // JOUEUR_H

@@ -1,9 +1,15 @@
 #include "joueur.h"
-#include "joueur.h"
+#include <iostream>
+#include <fstream>
 #include <string.h>
 #include <string>
-#include <iostream>
-#include <cstdlib>//random
+#include <iomanip>//time
+
+#include <Windows.h>//gotoxy
+#include <conio.h>//getch
+
+#include <wx/msgdlg.h>
+#include <wx/wx.h>
 using namespace std;
 
 joueur::joueur(string ch)
@@ -71,15 +77,13 @@ void joueur::setid()
             if (!ligne.empty())
                 ch = ligne;
         };
-        cout << ligne;
+      
         x = stoi(ch) + 1;
         id = x;
-        cout << x;
-
     }
     else
     {
-        cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+        //cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
     }
     entree.close();
     ofstream sortie("id.txt", ios::app);
