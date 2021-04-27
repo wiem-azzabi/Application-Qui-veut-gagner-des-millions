@@ -3,6 +3,9 @@
 #include <fstream>
 #include "joueur.h"
 #include "background.h"
+#include "stats.h"
+#include "Fenetre_resultat.h"
+
 using namespace std;
 
 class startgame : public wxFrame
@@ -33,14 +36,29 @@ private:
 	
 	joueur* j1;
 	int level = 1;
+
+	wxStaticText* timetext = nullptr;
+	int time1111 = 300;
+	wxTimer* datetime;
+
 public:
-	startgame();
+	startgame(wxString);
 	~startgame();
 	void onverify(wxCommandEvent& evt);
 	void onnext(wxCommandEvent& evt);
 	void temps(wxCommandEvent& evt);
 	void onclose(wxCloseEvent&);
+	void addsecond(wxTimerEvent& evt);
+	wxString inttotime(int);
+	void oncinquante(wxCommandEvent& evt);
+	void onswitch(wxCommandEvent& evt);
+	void onappelami(wxCommandEvent& evt);
+	void onavispublique(wxCommandEvent& evt);
 
+
+
+
+	
 
 	wxDECLARE_EVENT_TABLE();
 };

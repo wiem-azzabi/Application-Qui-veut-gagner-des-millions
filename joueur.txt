@@ -1,3 +1,43 @@
-joueur 1 score 20000
-joueur 2 score 12000
-joueur 3 score 500
+nom:  nomid:  10001002score:  394000
+nom:  nomid:  10001002score:  394000
+nom:  joujou   id:  1010   score:  500
+nom:  Inscrire Votre nom   id:  1011   score:  500
+nom:  Inscrire Votre nom   id:  1013   score:  1400
+nom:  Inscrire Votre nom   id:  1014   score:  1400
+nom:  Inscrire Votre nom   id:  1015   score:  500
+nom:  Inscrire Votre nom   id:  1016   score:  500
+nom:  Inscrire Votre nom   id:  1017   score:  2300
+nom:  Inscrire Votre nom   id:  1018   score:  500
+nom:  Inscrire Votre nom   id:  1019   score:  500
+nom:  Inscrire Votre nom   id:  1020   score:  500
+nom:  Inscrire Votre nom   id:  1022   score:  500
+nom:  Inscrire Votre nom   id:  1023   score:  500
+nom:  oumaima   id:  1024   score:  12200
+nom:  Inscrire Votre nom   id:  1026   score:  1400
+nom:  Inscrire Votre nom   id:  1027   score:  500
+nom:  Inscrire Votre nom   id:  1028   score:  500
+nom:  Inscrire Votre nom   id:  1029   score:  500
+nom:  Inscrire Votre nom   id:  1030   score:  500
+nom:  Inscrire Votre nom   id:  1032   score:  500
+nom:  Inscrire Votre nom   id:  1033   score:  500
+nom:  Inscrire Votre nom   id:  1034   score:  500
+nom:  Inscrire Votre nom   id:  1035   score:  500
+nom:  Inscrire Votre nom   id:  1036   score:  500
+nom:  wiem   id:  1037   score:  500
+nom:     id:  1038   score:  500
+nom:  Inscrire Votre nom   id:  1043   score:  500
+nom:  Inscrire Votre nom   id:  1049   score:  500
+nom:  Inscrire Votre nom   id:  1053   score:  1400
+nom:  Inscrire Votre nom   id:  1054   score:  1400
+nom:  Inscrire Votre nom   id:  1055   score:  1400
+nom:  Inscrire Votre nom   id:  1056   score:  500
+nom:  Inscrire Votre nom   id:  1057   score:  1400
+nom:  Inscrire Votre nom   id:  1058   score:  1400
+nom:  Inscrire Votre nom   id:  1059   score:  1400
+nom:  Inscrire Votre nom   id:  1060   score:  1400
+nom:  Inscrire Votre nom   id:  1062   score:  500
+nom:  Inscrire Votre nom   id:  1072   score:  500
+nom:  Inscrire Votre nom   id:  1075   score:  500
+nom:  Inscrire Votre nom   id:  1077   score:  500
+nom:  oumaima   id:  1082   score:  500
+nom:  Inscrire Votre nom   id:  1083   score:  1400

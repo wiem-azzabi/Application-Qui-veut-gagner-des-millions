@@ -2,7 +2,7 @@
 #include "wx/wx.h"
 class FenetreInstructions:public wxFrame
 {
-	wxStaticText* text = nullptr;
+	
 
 	wxButton* bouton_exit = nullptr;
 public:

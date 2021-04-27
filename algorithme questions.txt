@@ -1,0 +1,58 @@
+Quel acteur americain incarne le heros du film de Christopher Nolan de 2014 « Interstellar » ? 
+a Leonardo DiCaprio 
+b Brad Pitt 
+c Matthew MacConaughey 
+d Tom Cruise
+c 
+Quel est le plus long fleuve de France selon la partie coulant sur le territoire ? 
+a Le Rhone  
+c Le Rhin 
+d La Seine  
+b La Loire
+b
+Le drapeau russe est blanc, bleu et…? 
+c Vert  
+d Noir 
+a Rouge 
+b Jaune 
+a
+
+
+
+T tableau attribut  de classe questions:
+getquestion(i)
+	{ T[i][0])
+getproposition(i,j)
+	{T[i][j])
+getsolution(i)
+	{T[i][5])}
+
+ifstream entree ("questions2.txt",ios::in );
+      if(entree)
+{
+string ligne;
+T[0]="";
+for (int i=1;i<15;i++)		//i:numeroquestion 
+	for (int j=0;j<6;j++)
+	{getline(entree,ligne)
+		T[i][j]=ligne;}
+}
+
+	/*wxString T[3][6] = { {"Quel acteur americain incarne le heros du film de Christopher Nolan de 2014 « Interstellar » ?" ,
+"a Leonardo DiCaprio",
+"b Brad Pitt",
+"c Matthew MacConaughey",
+"d Tom Cruise",
+"c"},{"Quel est la plus longue rivière de France selon la partie coulant sur le territoire ?",
+"a Le Rhone",
+"c Le Rhin",
+"d La Seine",
+"b La Loire",
+"b"},
+		{"Le drapeau russe est blanc, bleu et… ? ",
+"c Vert",
+"d Noir",
+"a Rouge",
+"b Jaune",
+"a"} };*/
+	
