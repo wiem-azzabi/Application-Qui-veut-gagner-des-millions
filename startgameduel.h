@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class startgame : public wxFrame
+class startgameduel : public wxFrame
 {
 private:
 
@@ -32,24 +32,28 @@ private:
 	wxStaticText* scoretxt = nullptr;
 
 
-	wxString T[16][6];
-	int question_count =1;
-	size_t i =0;
-	
+	wxString T[17][6];
+	int question_count = 1;
+	size_t i = 0;
+	int x1 = 0, x2 = 0;
+
 	joueur* j1;
-	int level = 1;
+	joueur* j2;
+	int level[2] = { 1,1 };
 
 	wxStaticText* timetext = nullptr;
 	int time1111 = 300;
 	wxTimer* datetime;
 	wxMediaCtrl* Sound = nullptr;
 	wxMediaCtrl* clap = nullptr;
-	wxStaticBitmap* fleche_img;
 
-
+	int player = 2;
+	bool selectplayer = 0;
+	wxStaticBitmap* m_bitmap_j1, * m_bitmap_j2;
+	bool theend = false;
 public:
-	startgame(wxString);
-	~startgame();
+	startgameduel(wxString, wxString);
+	~startgameduel();
 	void onverify(wxCommandEvent& evt);
 	void onnext(wxCommandEvent& evt);
 	void temps(wxCommandEvent& evt);
@@ -60,11 +64,9 @@ public:
 	void onswitch(wxCommandEvent& evt);
 	void onappelami(wxCommandEvent& evt);
 	void onavispublique(wxCommandEvent& evt);
+	void onkeyboard(wxKeyEvent& event);
 
 
-
-
-	
 
 	wxDECLARE_EVENT_TABLE();
 };

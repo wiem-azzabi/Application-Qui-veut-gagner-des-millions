@@ -24,13 +24,14 @@ startgame::startgame(wxString nomjoueur) : wxFrame(nullptr, wxID_ANY, "", wxPoin
 
 	background* bg = new background(TempBitmap);
 	this->PushEventHandler(bg);
+	fleche_img = new wxStaticBitmap(this, 6020, wxBitmap(wxT("fleche.png"), wxBITMAP_TYPE_PNG), wxPoint(1180, 400));
 
 	///tableau des questions
 	ifstream entree("questions2.txt", ios::in);
 	if (entree)
 	{
 		string ligne;
-		for (int i = 0; i < 15; i++)		//i:numeroquestion 
+		for (int i = 0; i < 16; i++)		//i:numeroquestion 
 			for (int j = 0; j < 6; j++)
 			{
 				getline(entree, ligne);
@@ -83,6 +84,10 @@ startgame::startgame(wxString nomjoueur) : wxFrame(nullptr, wxID_ANY, "", wxPoin
 
 	//boutons next et verifier
 	next = new wxButton(this, 1000, "Commencer", wxPoint(100, 180), wxSize(200,20),wxBORDER_NONE);
+	scoretxt = new wxStaticText(this, wxID_ANY, "", wxPoint(100, 180), wxSize(200, 20), wxBORDER_NONE);
+	scoretxt->Show(false);
+	scoretxt->SetForegroundColour(wxColor(255, 188, 15));
+	scoretxt->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	verify_btn = new wxButton(this,1001, "verifier", wxPoint(125, 290), wxSize(-1, -1),wxBORDER_NONE);
 	next->SetBackgroundColour(wxColor(0, 0, 0));
 	next->SetForegroundColour(wxColor(255, 255, 255));
@@ -91,8 +96,15 @@ startgame::startgame(wxString nomjoueur) : wxFrame(nullptr, wxID_ANY, "", wxPoin
 	verify_btn->SetForegroundColour(wxColor(255, 255, 255));
 	verify_btn->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	this->SetBackgroundColour(wxColor(0, 0, 0));
-}
 
+	Sound = new wxMediaCtrl();
+	int ok = Sound->Create(this, wxID_ANY, "Sound.wav", wxDefaultPosition);
+	if (!ok) wxMessageBox("Couldn't load file.");
+
+	clap = new wxMediaCtrl();
+	int ok2 = clap->Create(this, wxID_ANY, "clap.wav", wxDefaultPosition);
+	if (!ok2) wxMessageBox("Couldn't load file.");
+}
 startgame::~startgame(){
 	int score = j1->getscore();
 	string nom = j1->getnom();
@@ -111,11 +123,16 @@ void startgame::onnext(wxCommandEvent& evt) {
 		reponse3_btn->SetLabel(T[0][3]);
 		reponse4_btn->SetLabel(T[0][4]);
 		next->Show(false);
+		scoretxt->Show();
 		datetime->Start(1000); //appel a la fct addsecond chaque 1000ms
+		//Sound->Play();
+		//Sound->GetVolume(0.5);
 	evt.Skip();
 }
 void startgame::onverify(wxCommandEvent& evt)
-{ 	
+{
+	//Sound->Play();
+	int ok = 0;
 	if (!(reponse1_btn->GetValue() || reponse2_btn->GetValue() || reponse3_btn->GetValue() || reponse4_btn->GetValue()))
 	{
 		wxMessageBox(wxT("choisissez une reponse"));
@@ -126,15 +143,21 @@ void startgame::onverify(wxCommandEvent& evt)
 		{
 			wxMessageBox(wxT("correct answer"));
 			j1->setgain(level);
-			
+
+			int y = fleche_img->GetPosition().y - 25;
+			delete fleche_img;
+			fleche_img = new wxStaticBitmap(this, 6020, wxBitmap(wxT("fleche.png"), wxBITMAP_TYPE_PNG), wxPoint(1180, y));
+			wxString s;
+			s << j1->getscore();
+			scoretxt->SetLabel(s);
+			clap->Play();
+			clap->SetVolume(0.5f);
+
 		}
 		else
 		{
+			ok = 1;
 			wxMessageBox(wxT("WRONG ANSWER !"));
-			this->Close();
-			Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore());
-			result_frame->Show();
-			
 		}
 	};
 	if ((i + 1) % 5 == 0)
@@ -143,36 +166,73 @@ void startgame::onverify(wxCommandEvent& evt)
 	};
 	i++;
 	question_count++;
-	if (i < 15)
+	if (ok == 0)
 	{
-		wxString s1;
-		s1 << level;
-		//wxMessageBox(s1);
-		wxString s;
-		s << question_count;
-		questioncount_text->SetLabel("Q." + s);
-		questiontitle->SetLabel(T[i][0]);
-		reponse1_btn->SetLabel(T[i][1]);
-		reponse2_btn->SetLabel(T[i][2]);
-		reponse3_btn->SetLabel(T[i][3]);
-		reponse4_btn->SetLabel(T[i][4]);
-		reponse1_btn->SetValue(false);
-		reponse2_btn->SetValue(false);
-		reponse3_btn->SetValue(false);
-		reponse4_btn->SetValue(false);
-		reponse1_btn->Show(true);
-		reponse2_btn->Show(true);
-		reponse3_btn->Show(true);
-		reponse4_btn->Show(true);
+		if ((i < 15))
+		{
+			wxString s1;
+			s1 << level;
+			//wxMessageBox(s1);
+			wxString s;
+			s << question_count;
+			questioncount_text->SetLabel("Q." + s);
+			questiontitle->SetLabel(T[i][0]);
+			reponse1_btn->SetLabel(T[i][1]);
+			reponse2_btn->SetLabel(T[i][2]);
+			reponse3_btn->SetLabel(T[i][3]);
+			reponse4_btn->SetLabel(T[i][4]);
+			reponse1_btn->SetValue(false);
+			reponse2_btn->SetValue(false);
+			reponse3_btn->SetValue(false);
+			reponse4_btn->SetValue(false);
+			reponse1_btn->Show(true);
+			reponse2_btn->Show(true);
+			reponse3_btn->Show(true);
+			reponse4_btn->Show(true);
+
+		}
+		else {
+			if (j1->tabjocker[0] == 0)
+			{
+				wxString s1;
+				s1 << level;
+				wxString s;
+				s << question_count;
+				questioncount_text->SetLabel("Q." + s);
+				questiontitle->SetLabel(T[i][0]);
+				reponse1_btn->SetLabel(T[i][1]);
+				reponse2_btn->SetLabel(T[i][2]);
+				reponse3_btn->SetLabel(T[i][3]);
+				reponse4_btn->SetLabel(T[i][4]);
+				reponse1_btn->SetValue(false);
+				reponse2_btn->SetValue(false);
+				reponse3_btn->SetValue(false);
+				reponse4_btn->SetValue(false);
+				reponse1_btn->Show(true);
+				reponse2_btn->Show(true);
+				reponse3_btn->Show(true);
+				reponse4_btn->Show(true);
+			}
+			else
+			{
+				//this->Close();
+				datetime->Stop();
+				j1->setscore(level);
+				Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore());
+				result_frame->Show();
+				this->Close();
+			}
+		}
+		if (ok == 1)
+		{
+			this->Close();
+			datetime->Stop();
+			j1->setscore(level);
+			Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore());
+			result_frame->Show();
+		};
 
 	}
-	else {
-		this->Close();
-		Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore());
-		result_frame->Show();
-	}
-	
-	evt.Skip();
 }
 
 void startgame::onclose(wxCloseEvent& event)
@@ -198,21 +258,19 @@ void startgame::addsecond(wxTimerEvent& evt) {
 	evt.Skip();
 }
 wxString startgame::inttotime(int x) {
-	wxString h, m, s;
-	int hh, mm, ss;
+	wxString  m, s;
+	int  mm, ss;
 	ss = x % 60;
 	x = x / 60;
 	mm = x % 60;
 	x = x / 60;
-	hh = x % 60;
-	h << hh;
 	m << mm;
 	s << ss;
 	wxString res;
-	if (ss < 10 && mm < 10) res = "0" + h + ":0" + m + ":0" + s;
-	else if (ss < 10 && mm >= 10) res = "0" + h + ":" + m + ":0" + s;
-	else if (ss >= 10 && mm < 10) res = "0" + h + ":0" + m + ":" + s;
-	else res = "0" + h + ":" + m + ":" + s;
+	if (ss < 10 && mm < 10) res ="0" +m + ":0" + s;
+	else if (ss < 10 && mm >= 10) res = "0"+ m + ":0" + s;
+	else if (ss >= 10 && mm < 10) res = "0" + m + ":" + s;
+	else res = m + ":" + s;
 	return res;
 }
 
@@ -285,6 +343,8 @@ void startgame::onswitch(wxCommandEvent& evt)
 		reponse4_btn->Show(true);
 		/// ***
 		j1->tabjocker[0] = 0;
+
+	
 	}
 	else
 	{

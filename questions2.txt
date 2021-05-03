@@ -88,3 +88,21 @@ b De l Espagne
 c Du Portugal  
 d Du Perou
 c
+De l’oeuvre de quel ecrivain est tiree la celebre question -Que sais-je-?
+a Diderot 
+b Voltaire 
+c Montaigne 
+d Étienne de la Boetie 
+c
+En combien de temps la Terre tourne t elle autour du Soleil ?
+a 365 jours et un quart
+b 365
+c 364 
+d 363
+a
+
+
+
+
+
+
