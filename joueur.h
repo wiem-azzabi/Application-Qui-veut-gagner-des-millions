@@ -1,3 +1,5 @@
+#ifndef JOUEUR_H
+#define JOUEUR_H
 #include "wx/wx.h"
 #include <fstream>
 
@@ -31,3 +33,4 @@ public:
     //friend class startgame;
 
 };
+#endif

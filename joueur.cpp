@@ -30,7 +30,7 @@ void joueur::setgain(int& a)///****
     {score += 190000;
     break; }
     }
-    cout << "             gain " << score << endl;
+   
 }
 
 void joueur::setscore(int& a)///***

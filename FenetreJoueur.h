@@ -9,6 +9,8 @@ public:
 	FenetreJoueur();
 	~FenetreJoueur();
 	void onClick(wxCommandEvent&);
+	void onclose(wxCloseEvent&);
+
 	wxDECLARE_EVENT_TABLE();
 };
 

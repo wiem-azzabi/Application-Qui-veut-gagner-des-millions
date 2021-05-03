@@ -7,6 +7,7 @@ using namespace std;
 
 wxBEGIN_EVENT_TABLE(FenetreJoueur, wxFrame)
 EVT_BUTTON(2001, onClick)
+EVT_CLOSE(FenetreJoueur::onclose)
 wxEND_EVENT_TABLE()
 
 
@@ -52,6 +53,10 @@ void FenetreJoueur::onClick(wxCommandEvent& evt)
 	this->Close();
 	cMain* retour_frame = new cMain();
 	retour_frame->Show();
-	evt.Skip();
 
+}
+void FenetreJoueur::onclose(wxCloseEvent& event)
+{
+	Destroy();
+	this->PopEventHandler(true);
 }

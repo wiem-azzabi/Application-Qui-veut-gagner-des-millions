@@ -18,6 +18,8 @@ private:
 	wxButton* btn_login = nullptr;
 	wxButton* bouton_instructions = nullptr;
 	wxButton* exit = nullptr;
+	wxButton* btn_login2 = nullptr;
+
 
 	
 public:
@@ -29,6 +31,7 @@ public:
 	void onclick_instructions(wxCommandEvent& evt);
 
 	void onlogin(wxCommandEvent& evt);
+	void onclose(wxCloseEvent& event);
 
 	wxDECLARE_EVENT_TABLE();
 };
