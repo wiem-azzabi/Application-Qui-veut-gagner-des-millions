@@ -47,69 +47,107 @@ cout<<"\n \n"<<endl;
             std::clock_t start;
             start = std::clock();
             double duration=0;
-            double maxtime=120;//en secondes
+            double maxtime=60;//en secondes
             int n=0;
             while(duration<maxtime)
             {
 
                while(n<15)//pour chaque question
                 {doo:
+
                 string* tab=new string[3];
                 int i=0;
                 while(i<3)
-                    {getline(entree, ligne); //On lit une ligne complète et l'enregistre dans "ligne"
+                    {getline(entree, ligne); //On lit une ligne complÃ¨te et l'enregistre dans "ligne"
                     getline(entree2,ligne3);
                     tab[i]=ligne3;
-                    setcolor(WHITE);
+                    setcolor(DARK_YELLOW);
                     cout<<"         "<<ligne<<endl;
                     ligne2=ligne;
                     i++;
                     }
-
+                setcolor(WHITE);
                 getline(entree,ligne);
-                cout<<"         tapez numero jocker(0: aucun jocker 1:switch 2: 50/50 3:appel ami 4: avis publique)"<<endl;
+                jocker:
+                cout<<"\n         tapez numero jocker \n         |0) aucun jocker | 1) switch | 2) 50/50 | 3)appel ami | 4) avis publique"<<endl;
+                cout<<"         vous disposez de: \n         ||switch ("<<j1.tabjocker[0]<<") ||50/50 ("<<j1.tabjocker[1]<<") ||appel ami ("<<j1.tabjocker[2]<<") ||avis publique ("<<j1.tabjocker[3]<<")"<<endl;
+
           int x;
           do
           {
               cin>>x;
           }while (x!=0&&x!=1&&x!=2&&x!=3&&x!=4);
+
+
           switch(x)
           {case 0:
               goto rep;
           case 1:
-                n++;
-          goto doo;
+                if(j1.verif(0))
+                    {j1.settabjocker(0);
+                    n++;
+                    goto doo;}
+                else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                break;
 
           case 2:
             //jocker 50/50
-               cout<<"              "<<ligne2<<endl;
-               goto rep;
-               //j1.score;
+               if(j1.verif(1))
+               {j1.settabjocker(1);
+                setcolor(DARK_YELLOW);cout<<"              "<<ligne2<<endl;setcolor(WHITE);
+                goto rep;}
+               else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+            break;
 
            case 3:
            //appel ami
-               cout<<"         Votre ami dit: «Je suis tenté de vous laisser pendre parce que c'est trop facile. Comment pouvez-vous être confus? La bonne réponse est " ;
-               cout<<ligne<<endl;
-               goto rep;
-
+                if (j1.verif(2))
+                {
+                j1.settabjocker(2);
+               cout<<"         Votre ami dit: Â«Je suis tentÃ© de vous laisser pendre parce que c'est trop facile. Comment pouvez-vous Ãªtre confus? La bonne rÃ©ponse est " ;
+               setcolor(DARK_YELLOW);cout<<ligne<<endl;setcolor(WHITE);
+               goto rep;}
+                else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+            break;
           case 4:
                 //avispublic
-              for(int i=1;i<3;i++)
-                    cout<<"                   "<<tab[i]<<endl;
-             goto rep;
+                if (j1.verif(3))
+                {j1.settabjocker(3);
+                for(int i=1;i<3;i++)
+                {setcolor(DARK_YELLOW);cout<<"                   "<<tab[i]<<endl;setcolor(WHITE);}
+                goto rep;
+                }
 
+
+                 else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                     break;
           }
+
+
                 rep:
 
                 cout<<"                 entrer votre reponse "<<endl;
                 string reponse;
                 cin>>reponse;
+
                 if (ligne.rfind(reponse)==0)
                     {setcolor(GREEN); cout<<"            bonne reponse"<<endl;
-                     j1.setscore(n);
+                     j1.setgain(j1.level);///***
+                     //cout<<"level "<<level<<endl;
                     }
                 else
-                    {setcolor(RED); cout<<"            mauvaise reponse"<<endl;
+                    {
+                        setcolor(RED); cout<<"            mauvaise reponse"<<endl;
+                        j1.setscore(j1.level);///***
+                        n=15;
                     }
                 duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
                 setcolor(BLUE);
@@ -118,9 +156,16 @@ cout<<"\n \n"<<endl;
                     {cout<<"time out"<<endl;
                     break;
                     };
-                n++; };//while n
-            }//while time
+
+                if ((n+1)%5==0) ///****
+                {
+                    j1.level++;
+                };
+
+                n++;};//while n
+            break;}//while time
         }//if entree
+
     int score=j1.getscore();
     string nom=j1.getnom();
     int id=j1.getid();
@@ -136,9 +181,9 @@ cout<<"\n \n"<<endl;
 
 		setcolor(BLUE);
 		gotoXY(20,5);
-	    cout<<"**************************************"<<endl;
+	    cout<<"***************FIN DU JEU******************"<<endl;
 	    gotoXY(20,6);
-        cout<<j1.getnom()<<"  ,  vous avez gagné   "<<j1.getscore()<<" TND "<<endl;
+        cout<<j1.getnom()<<"  ,  vous avez gagnÃ©   "<<j1.getscore()<<" TND "<<endl;
         gotoXY(20,7);
         cout<<"**************************************"<<endl;
         setcolor(WHITE);
@@ -161,6 +206,8 @@ cout<<"\n \n"<<endl;
             double duration=0;
             double maxtime=120;//en secondes
             int n=0;
+            int x1=0;
+            int x2=0;
             while(duration<maxtime)
             {
 
@@ -169,74 +216,191 @@ cout<<"\n \n"<<endl;
                 string* tab=new string[3];
                 int i=0;
                 while(i<3)
-                    {getline(entree, ligne); //On lit une ligne complète et l'enregistre dans "ligne"
+                    {getline(entree, ligne); //On lit une ligne complï¿½te et l'enregistre dans "ligne"
                     getline(entree2,ligne3);
                     tab[i]=ligne3;
-                    setcolor(WHITE);
+                    setcolor(DARK_YELLOW);
                     cout<<"         "<<ligne<<endl;
                     ligne2=ligne;
                     i++;
                     }
-
+                setcolor(WHITE);
                 getline(entree,ligne);
 
+            foo:
+          setcolor(BLUE);cout<<" Cliquez pour decrocher votre tour "<<endl;setcolor(WHITE);
           char player=0; ///tour du quel joueur
           do
           {
               player=_getch();
           }
           while (player!=97&& player!=112 ); /// saisie de A ou P
+
           if (player==97)
             cout<<"c'est le tour du joueur 1 "<<j1.getnom()<<endl;
           else
           cout<<"c'est le tour du joueur 2 "<<j2.getnom()<<endl;
+          jocker:
+         cout<<"\n         tapez numero jocker(0: aucun jocker 1:switch 2: 50/50 3:appel ami 4: avis publique)"<<endl;
+          if (player==97)
+           cout<<"         vous disposez de: \n         ||switch ("<<j1.tabjocker[0]<<") ||50/50 ("<<j1.tabjocker[1]<<") ||appel ami ("<<j1.tabjocker[2]<<") ||avis publique ("<<j1.tabjocker[3]<<")"<<endl;
 
-          cout<<"\n         tapez numero jocker(0: aucun jocker 1:switch 2: 50/50 3:appel ami 4: avis publique)"<<endl;
+          else
+            cout<<"         vous disposez de: \n         ||switch ("<<j2.tabjocker[0]<<") ||50/50 ("<<j2.tabjocker[1]<<") ||appel ami ("<<j2.tabjocker[2]<<") ||avis publique ("<<j2.tabjocker[3]<<")"<<endl;
           int x;///numero jocker
           do
           {
               cin>>x;
           }while (x!=0&&x!=1&&x!=2&&x!=3&&x!=4);
-          switch(x)
+         switch(x)
           {case 0:
-              goto rep;
-          case 1:
-                n++;
-          goto doo;
+              switch(player)
+              {
+                case 97: goto rep;
+                case 112: goto rep ;}
+          case 1://jocker switch
+               switch(player)
+               {case 97:
+                  if(j1.verif(0))
+                    {j1.settabjocker(0);
+                    ///*
+                    setcolor(DARK_YELLOW);cout<<"De lâ€™Å“uvre de quel Ã©crivain est tirÃ©e la cÃ©lÃ¨bre question Â« Que sais-je ? Â» "
+                    <<"a)Diderot b)Voltaire c)Montaigne d)Ã‰tienne de la BoÃ©tie"<<endl;setcolor(WHITE);
 
+                    cout<<"                 entrer votre reponse "<<endl<<"     ";
+                string reponse;
+                string ligne="c";
+                cin>>reponse;
+                if (ligne.rfind(reponse)==0)
+                    {setcolor(GREEN); cout<<"            bonne reponse"<<endl;
+                        j1.setgain(j1.level);}
+                else
+                    {setcolor(RED); cout<<"            mauvaise reponse"<<endl;
+                    j1.setscore(j1.level);break;}
+                    }
+
+                  else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                break;
+                case 112:
+                  if(j2.verif(0))
+                    {j2.settabjocker(0);
+
+                    setcolor(DARK_YELLOW);cout<<"OÃ¹ est nÃ© Mozart ? a)Venise b)Turin c)Vienne d)Salzbourg"<<endl;setcolor(WHITE);
+
+                    cout<<"                 entrer votre reponse "<<endl<<"     ";
+                string reponse;
+                string ligne="d";
+                cin>>reponse;
+                if (ligne.rfind(reponse)==0)
+                    {setcolor(GREEN); cout<<"            bonne reponse"<<endl;
+                        x2++;
+                        j2.setgain(j2.level);}
+                else
+                    {setcolor(RED); cout<<"            mauvaise reponse"<<endl;
+                    j2.setscore(j2.level);
+                    break;
+                    }}
+                  else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                break;
+               }
+            goto doo;
+            break;
           case 2:
             //jocker 50/50
-               cout<<"              "<<ligne2<<endl;
-               goto rep;
-               //j1.score;
+                switch(player)
+               {case 97:
+                  if(j1.verif(1))
+                    {j1.settabjocker(0);
+                    setcolor(DARK_YELLOW);cout<<"              "<<ligne2<<endl;setcolor(WHITE);
+                     goto rep;}
+                  else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisï¿½ ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                case 112:
+                  if(j2.verif(1))
+                    {j2.settabjocker(0);
+                   setcolor(DARK_YELLOW);cout<<"              "<<ligne2<<endl;setcolor(WHITE);
+                   goto rep;}
+                else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisï¿½ ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}};
 
+
+            break;
            case 3:
            //appel ami
-               cout<<"         Votre ami dit: «Je suis tenté de vous laisser pendre parce que c'est trop facile.\n  Comment pouvez-vous être confus? \n La bonne réponse est " ;
-               cout<<ligne<<endl;
-               goto rep;
+           switch(player)
+               {case 97:
+                  if(j1.verif(2))
+                    {j1.settabjocker(0);
+                    cout<<"         Votre ami dit: ï¿½Je suis tentï¿½ de vous laisser pendre parce que c'est trop facile. Comment pouvez-vous ï¿½tre confus? La bonne rï¿½ponse est " ;
+                    setcolor(DARK_YELLOW);cout<<ligne<<endl;setcolor(WHITE);
+                    goto rep;}
+                  else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisï¿½ ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                case 112:
+                  if(j2.verif(2))
+                    {j2.settabjocker(0);
+                   cout<<"         Votre ami dit: ï¿½Je suis tentï¿½ de vous laisser pendre parce que c'est trop facile. Comment pouvez-vous ï¿½tre confus? La bonne rï¿½ponse est " ;
+                   setcolor(DARK_YELLOW);cout<<ligne<<endl;setcolor(WHITE);
+                   goto rep;}
+                else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisï¿½ ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}};
+            break;
+          case 4: //avispublic
+            switch(player)
+               {case 97:
+                  if(j1.verif(3))
+                    {j1.settabjocker(0);
+                     for(int i=1;i<3;i++)
+                    {setcolor(DARK_YELLOW);cout<<"                   "<<tab[i]<<endl;setcolor(WHITE);}
+                    goto rep;;}
+                  else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}
+                case 112:
+                  if(j2.verif(3))
+                    {j2.settabjocker(0);
+                    for(int i=1;i<3;i++)
+                     {setcolor(DARK_YELLOW);cout<<"                   "<<tab[i]<<endl;setcolor(WHITE);}
+                      goto rep;}
+                else
+                    {setcolor(DARK_RED);cout<<"         jocker deja utilisÃ© ! retapez un jocker "<<endl;setcolor(WHITE);
+                     goto jocker;}};}break;
 
-          case 4:
-                //avispublic
-              for(int i=1;i<3;i++)
-                    cout<<"                   "<<tab[i]<<endl;
-             goto rep;
 
-          }
                 rep:
 
-                cout<<"                 entrer votre reponse "<<endl<<"     ";
+                cout<<"                 entrer votre reponse "<<endl;
                 string reponse;
                 cin>>reponse;
                 if (ligne.rfind(reponse)==0)
                     {setcolor(GREEN); cout<<"            bonne reponse"<<endl;
                      switch (player)
-                        {case 97 :j1.setscore(n);
-                         case 112 : j2.setscore(n);
+                        {case 97 :
+                                {x1++;
+                                j1.setgain(j1.level);
+                                break;
+                                }
+                         case 112 :
+                             {  x2++;
+                                j2.setgain(j2.level);
+                                break;}
                         };
                     }
                 else
                     {setcolor(RED); cout<<"            mauvaise reponse"<<endl;
+                    switch (player)
+                        {case 97 : {j1.setscore(j1.level);break;}
+                         case 112 :  {j2.setscore(j2.level);break;}
+                        };
+
                     }
                 duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
                 setcolor(BLUE);
@@ -245,6 +409,14 @@ cout<<"\n \n"<<endl;
                     {cout<<"time out"<<endl;
                     break;
                     };
+                if ((x1+1)%5==0) ///****
+                {
+                    j1.level++;
+                };
+                 if ((x2+1)%5==0) ///****
+                {
+                    j2.level++;
+                };
                 n++; };//while n
             }//while time
         }//if entree
@@ -273,10 +445,10 @@ cout<<"\n \n"<<endl;
 	    cout<<"**************************************"<<endl;
 	    gotoXY(20,6);
 	    setcolor(YELLOW);
-	    cout<<"Felicitations "<<j1.getnom()<<" !!,  vous avez gagné   "<<j1.getscore()<<" TND "<<endl;
+	    cout<<"Felicitations "<<j1.getnom()<<" !!,  vous avez gagnï¿½   "<<j1.getscore()<<" TND "<<endl;
 	    gotoXY(20,7);
 	    setcolor(BLUE);
-	    cout<<j2.getnom()<<"  ,  Ne perdez pas espoir! "<<endl;
+	    cout<<j2.getnom()<<" votre score est "<<j2.getscore()<<"  ,  Ne perdez pas espoir! "<<endl;
         gotoXY(20,8);
         cout<<"**************************************"<<endl;
         setcolor(WHITE);
@@ -288,10 +460,10 @@ cout<<"\n \n"<<endl;
 	    cout<<"**************************************"<<endl;
 	    gotoXY(20,6);
 	    setcolor(YELLOW);
-	    cout<<"Felicitations "<<j2.getnom()<<"  ,  vous avez gagné   "<<j2.getscore()<<" TND "<<endl;
+	    cout<<"Felicitations "<<j2.getnom()<<"  ,  vous avez gagnÃ©   "<<j2.getscore()<<" TND "<<endl;
 	    gotoXY(20,7);
 	    setcolor(BLUE);
-	    cout<<j1.getnom()<<"  ,  Ne perdez pas espoir! "<<endl;
+	    cout<<j1.getnom()<<"votre score est "<<j1.getscore()<<"  ,  Ne perdez pas espoir! "<<endl;
         gotoXY(20,8);
         cout<<"**************************************"<<endl;
         setcolor(WHITE);
@@ -314,7 +486,7 @@ void pageinstructions()
 		gotoXY(28,10);
 		cout<<"afin de gagner le maximum de score  "<<endl;
 		gotoXY(28,11);
-		cout<<"ce jeu est limité par un temps (120s )"<<endl;
+		cout<<"ce jeu est limitï¿½ par un temps (120s )"<<endl;
 		gotoXY(28,13);
 		cout<<"Vous allez le choix de choisir un joker parmi 4 pour chaque question"<<endl;
 		gotoXY(28,14);
@@ -322,11 +494,11 @@ void pageinstructions()
 		gotoXY(28,15);
 		cout<<"le premier joker : le switch(autoriser le changement de la question "<<endl;
 		gotoXY(28,16);
-		cout<<"le deuxieme joker:LE 50/50 :ELIMINATION DE DEUX RÉPONSES FAUSSES"<<endl;
+		cout<<"le deuxieme joker:LE 50/50 :ELIMINATION DE DEUX Rï¿½PONSES FAUSSES"<<endl;
 		gotoXY(28,17);
 		cout<<"le troisieme joker :apppel d'un ami"<<endl;
 		gotoXY(28,18);
-		cout<<"le quatriéme joker : le vote du public ceci va etre afficher en pourcentage"<<endl;
+		cout<<"le quatriï¿½me joker : le vote du public ceci va etre afficher en pourcentage"<<endl;
 		gotoXY(28,19);
 		cout<<"Si vous n'avez pas besoin de joker vous pouvez entrer zero"<<endl;
 		gotoXY(28,21);
@@ -422,8 +594,10 @@ cout<<"\\__/     \\__|  \\________|  \\________|  \\______/    \\______/   \\__|
 			{
 			    case 1:
 			        pagejeu();
+			        break;
                 case 2:
                     pagejeuduel();
+                    break;
 
 			}
 
@@ -472,6 +646,14 @@ cout<<"\\__/     \\__|  \\________|  \\________|  \\______/    \\______/   \\__|
     };
  void pagejeuduel()
     {
+    gotoXY(46,4);
+    cout<<"*****************************"<<endl;
+    gotoXY(46,5);
+    cout<<"joueur 1 utilisera la touche A"<<endl;
+    gotoXY(46,6);
+    cout<<"joueur 2 utilisera la touche P"<<endl;
+    gotoXY(46,7);
+    cout<<"*******************************"<<endl;
     gotoXY(50,8);
     cout<<"entrer nom joueur 1"<<endl;
     gotoXY(50,9);
@@ -486,14 +668,7 @@ cout<<"\\__/     \\__|  \\________|  \\________|  \\______/    \\______/   \\__|
     joueur j2(nom2);
     j1.setid();
     j2.setid();
-    gotoXY(46,10);
-    cout<<"*****************************"<<endl;
-    gotoXY(46,11);
-    cout<<"joueur 1 utilisera la touche A"<<endl;
-    gotoXY(46,12);
-    cout<<"joueur 2 utilisera la touche P"<<endl;
-    gotoXY(46,13);
-    cout<<"*******************************"<<endl;
+
     system("CLS");
     jeuduel(j1,j2);
     };

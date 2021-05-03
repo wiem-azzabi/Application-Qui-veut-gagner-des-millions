@@ -15,7 +15,10 @@ class joueur
     int id;
 	string nom;
 	double score;
+	public:
     int tabjocker[4]={1,1,1,1};
+    int level=1;
+
 
 
     public:
