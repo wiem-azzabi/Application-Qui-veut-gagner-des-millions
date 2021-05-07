@@ -6,6 +6,7 @@
 #include "stats.h"
 #include "Fenetre_resultat.h"
 #include "wx/mediactrl.h"
+#include "string.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ private:
 	wxString T[17][6];
 	int question_count = 1;
 	size_t i = 0;
+	int imax = 15;
 	int x1 = 0, x2 = 0;
 
 	joueur* j1;
