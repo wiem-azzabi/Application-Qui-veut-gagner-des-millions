@@ -11,7 +11,7 @@ EVT_BUTTON(200, oncinquante)
 EVT_BUTTON(300, onappelami)
 EVT_BUTTON(400, onavispublique)
 EVT_CLOSE(startgameduel::onclose)
-EVT_TIMER(1111, addsecond)
+EVT_TIMER(1111, chrono)
 EVT_KEY_DOWN(onkeyboard)
 END_EVENT_TABLE()
 
@@ -105,11 +105,15 @@ startgameduel::startgameduel(wxString nomjoueur, wxString nomjoueur2) : wxFrame(
 
 	Sound = new wxMediaCtrl();
 	int ok = Sound->Create(this, wxID_ANY, "Sound.wav", wxDefaultPosition);
-	if (!ok) wxMessageBox("Couldn't load file.");
+	if (!ok) wxMessageBox("impossible d'ouvrir le fichier");
 
 	clap = new wxMediaCtrl();
 	int ok2 = clap->Create(this, wxID_ANY, "clap.wav", wxDefaultPosition);
-	if (!ok2) wxMessageBox("Couldn't load file.");
+	if (!ok2) wxMessageBox("impossible d'ouvrir le fichier");
+
+	son_echec = new wxMediaCtrl();
+	int ok3 = son_echec->Create(this, wxID_ANY, "loser.wav", wxDefaultPosition);
+	if (!ok3) wxMessageBox("Couldn't load file.");
 
 	wxString s1;
 	s1 << j1->getscore();
@@ -119,10 +123,23 @@ startgameduel::startgameduel(wxString nomjoueur, wxString nomjoueur2) : wxFrame(
 
 }
 startgameduel::~startgameduel() {
-	int score = j1->getscore();
-	int score2 = j2->getscore();
+	int score = 0;
+	int score1 = j1->getscore();
+	if (score1 <= 500)
+	{
+		j1->setscore(score);
+		score = j1->getscore();
+	}
+	int score2 = 0;
+	int score3 = j2->getscore();
+	if (score3 <= 500)
+	{
+		j2->setscore(score2);
+		score2 = j2->getscore();
+	}
 	string nom = j1->getnom();
 	string nom2 = j2->getnom();
+
 	int id = j1->getid();
 	int id2 = j2->getid();
 	datetime->Stop();
@@ -143,15 +160,14 @@ void startgameduel::onnext(wxCommandEvent& evt) {
 	verify_btn->Enable(true);
 	next->Show(false);
 	scoretxt->Show();
-	datetime->Start(1000); //appel a la fct addsecond chaque 1000ms
-	//Sound->Play();
-	//Sound->GetVolume(0.5);
+	datetime->Start(500); //appel a la fct chrono chaque 1000ms
+	Sound->Play();
 	evt.Skip();
 }
 
 void startgameduel::onverify(wxCommandEvent& evt)
 {
-	//Sound->Play();
+	Sound->Play();
 	bool ans_select = true; //s'assurer qu'on selectionne un joueur avant de cliquer "verifier"
 
 	if (player != 2) {
@@ -164,7 +180,7 @@ void startgameduel::onverify(wxCommandEvent& evt)
 			if ((T[i][5].rfind("a") == 0 && reponse1_btn->GetValue()) || (T[i][5].rfind("b") == 0 && reponse2_btn->GetValue())
 				|| (T[i][5].rfind("c") == 0 && reponse3_btn->GetValue()) || (T[i][5].rfind("d") == 0 && reponse4_btn->GetValue()))
 			{
-				wxMessageBox(wxT("correct answer"));
+				wxMessageBox(wxT("reponse correcte"));
 				if (player == 0)
 				{
 					x1++;
@@ -181,7 +197,7 @@ void startgameduel::onverify(wxCommandEvent& evt)
 					x2++;
 					j2->setgain(level[1]);
 					level[1] = x2 / 5 + 1;
-					int y = m_bitmap_j2->GetPosition().y - 25; ///retour level**************************************
+					int y = m_bitmap_j2->GetPosition().y - 25; ///retour level
 					delete m_bitmap_j2;
 					m_bitmap_j2 = new wxStaticBitmap(this, 6020, wxBitmap(wxT("j2.png"), wxBITMAP_TYPE_PNG), wxPoint(1498, y));
 				}
@@ -195,7 +211,9 @@ void startgameduel::onverify(wxCommandEvent& evt)
 			}
 			else
 			{
-				wxMessageBox(wxT("WRONG ANSWER !"));
+				son_echec->Play();
+				son_echec->SetVolume(0.5f);
+				wxMessageBox(wxT("REPONSE FAUSSE !"));
 				switch (player)
 				{
 				case 0:
@@ -224,8 +242,7 @@ void startgameduel::onverify(wxCommandEvent& evt)
 				wxString s2;
 				s2 << j2->getscore();
 				scoretxt->SetLabel("j1: " + s1 + "  j2: " + s2);
-				//clap->Play();
-				//clap->SetVolume(0.5f);
+				
 			}
 		}
 
@@ -253,6 +270,17 @@ void startgameduel::onverify(wxCommandEvent& evt)
 			}
 			else {
 					datetime->Stop();
+					int score = 0;
+					int score1 = j1->getscore();
+					if (score1 <= 500)
+					{
+						j1->setscore(score);
+					}
+					int score3 = j2->getscore();
+					if (score3 <= 500)
+					{
+						j2->setscore(score);
+					}
 					Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore(), j2->getnom(), j2->getscore());
 					result_frame->Show();
 					this->Close();
@@ -261,29 +289,42 @@ void startgameduel::onverify(wxCommandEvent& evt)
 		}
 	}
 	else {
-		wxMessageBox("S'il vous plait désigner le tour à un jour tout d'abord !");
+		wxMessageBox("S'il vous plait désigner le tour à un joueur tout d'abord !");
 	}
 	this->SetFocus();
-	if (ans_select) player = 2; //needed to make sure to select a player before verifying an answer...
+	if (ans_select) player = 2; //nécessaire pour assurer la sélection d'un joueur avant de vérifier une réponse...
 
 }
 
 void startgameduel::onclose(wxCloseEvent& event)
 {
-	//Rewrite these lines whenever this window is about to close. "Exit button ..."
 	Destroy();
 	this->PopEventHandler(true);
 }
-void startgameduel::addsecond(wxTimerEvent& evt) {
+void startgameduel::chrono(wxTimerEvent& evt) {
 	wxString s;
 	s = inttotime(time1111);
 	time1111--;
 	if (time1111 <= 0)
 	{
 		datetime->Stop();
-		wxMessageBox("Timeout");
+		wxMessageBox("Temps ecoulé");
+		j1->setscore(level[0]);
+		j2->setscore(level[1]);
+		int score = 0;
+		int score1 = j1->getscore();
+		if (score1 == 500)
+		{
+			j1->setscore(score);
+		
+		}
+		int score3 = j2->getscore();
+		if (score3 == 500)
+		{
+			j2->setscore(score);
+		}
 		this->Close();
-		Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore());
+		Fenetre_resultat* result_frame = new Fenetre_resultat(j1->getnom(), j1->getscore(),j2->getnom(),j2->getscore());
 		result_frame->Show();
 	}
 	timetext->SetLabel(s);
@@ -419,7 +460,7 @@ void startgameduel::onswitch(wxCommandEvent& evt)
 	{
 		if (j1->tabjocker[0] == 1)
 		{
-			/// ****
+			
 			i++;
 
 			wxString s;

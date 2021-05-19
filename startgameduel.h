@@ -48,6 +48,9 @@ private:
 	wxTimer* datetime;
 	wxMediaCtrl* Sound = nullptr;
 	wxMediaCtrl* clap = nullptr;
+	wxMediaCtrl* son_echec = nullptr;
+
+
 
 	int player = 2;
 	bool selectplayer = 0;
@@ -60,7 +63,7 @@ public:
 	void onnext(wxCommandEvent& evt);
 	void temps(wxCommandEvent& evt);
 	void onclose(wxCloseEvent&);
-	void addsecond(wxTimerEvent& evt);
+	void chrono(wxTimerEvent& evt);
 	wxString inttotime(int);
 	void oncinquante(wxCommandEvent& evt);
 	void onswitch(wxCommandEvent& evt);

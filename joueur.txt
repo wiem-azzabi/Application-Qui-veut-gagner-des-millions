@@ -1,144 +1,62 @@
-nom:  nomid:  10001002score:  394000
-nom:  nomid:  10001002score:  394000
-nom:  joujou   id:  1010   score:  500
-nom:  Inscrire Votre nom   id:  1011   score:  500
-nom:  Inscrire Votre nom   id:  1013   score:  1400
-nom:  Inscrire Votre nom   id:  1014   score:  1400
-nom:  Inscrire Votre nom   id:  1015   score:  500
-nom:  Inscrire Votre nom   id:  1016   score:  500
-nom:  Inscrire Votre nom   id:  1017   score:  2300
-nom:  Inscrire Votre nom   id:  1018   score:  500
-nom:  Inscrire Votre nom   id:  1019   score:  500
-nom:  Inscrire Votre nom   id:  1020   score:  500
-nom:  Inscrire Votre nom   id:  1022   score:  500
-nom:  Inscrire Votre nom   id:  1023   score:  500
-nom:  oumaima   id:  1024   score:  12200
-nom:  Inscrire Votre nom   id:  1026   score:  1400
-nom:  Inscrire Votre nom   id:  1027   score:  500
-nom:  Inscrire Votre nom   id:  1028   score:  500
-nom:  Inscrire Votre nom   id:  1029   score:  500
-nom:  Inscrire Votre nom   id:  1030   score:  500
-nom:  Inscrire Votre nom   id:  1032   score:  500
-nom:  Inscrire Votre nom   id:  1033   score:  500
-nom:  Inscrire Votre nom   id:  1034   score:  500
-nom:  Inscrire Votre nom   id:  1035   score:  500
-nom:  Inscrire Votre nom   id:  1036   score:  500
-nom:  wiem   id:  1037   score:  500
-nom:     id:  1038   score:  500
-nom:  Inscrire Votre nom   id:  1043   score:  500
-nom:  Inscrire Votre nom   id:  1049   score:  500
-nom:  Inscrire Votre nom   id:  1053   score:  1400
-nom:  Inscrire Votre nom   id:  1054   score:  1400
-nom:  Inscrire Votre nom   id:  1055   score:  1400
-nom:  Inscrire Votre nom   id:  1056   score:  500
-nom:  Inscrire Votre nom   id:  1057   score:  1400
-nom:  Inscrire Votre nom   id:  1058   score:  1400
-nom:  Inscrire Votre nom   id:  1059   score:  1400
-nom:  Inscrire Votre nom   id:  1060   score:  1400
-nom:  Inscrire Votre nom   id:  1062   score:  500
-nom:  Inscrire Votre nom   id:  1072   score:  500
-nom:  Inscrire Votre nom   id:  1075   score:  500
-nom:  Inscrire Votre nom   id:  1077   score:  500
-nom:  oumaima   id:  1082   score:  500
-nom:  Inscrire Votre nom   id:  1083   score:  1400
-nom:  Inscrire Votre nom   id:  1084   score:  500
-nom:  Inscrire Votre nom   id:  1085   score:  500
-nom:  Inscrire Votre nom   id:  1086   score:  1400
-nom:  wima   id:  1087   score:  500
-nom:  Inscrire Votre nom   id:  1089   score:  1400
-nom:  Inscrire Votre nom   id:  1090   score:  500
-nom:  Inscrire Votre nom   id:  1091   score:  500
-nom:  Inscrire Votre nom   id:  1093   score:  500
-nom:  Inscrire Votre nom   id:  1094   score:  500
-nom:  Inscrire Votre nom   id:  1095   score:  500
-nom:  Inscrire Votre nom   id:  1098   score:  500
-nom:  Inscrire Votre nom   id:  1099   score:  500
-nom:  Inscrire Votre nom   id:  1100   score:  500
-nom:  Inscrire Votre nom   id:  1101   score:  500
-nom:  Inscrire Votre nom   id:  1102   score:  500
-nom:  Inscrire Votre nom   id:  1103   score:  500
-nom:  Inscrire Votre nom   id:  1104   score:  500
-nom:  Inscrire Votre nom   id:  1105   score:  500
-nom:  Inscrire Votre nom   id:  1106   score:  500
-nom:  Inscrire Votre nom   id:  1109   score:  500
-nom:  Inscrire Votre nom   id:  1110   score:  500
-nom:  Inscrire Votre nom   id:  1111   score:  500
-nom:  Alaa   id:  1112   score:  500
-nom:  Alaa   id:  1113   score:  50000
-nom:  Hakim   id:  1114   score:  810000
-nom:  Inscrire Votre nom   id:  1116   score:  2300
-nom:  Inscrire Votre nom   id:  1117   score:  1400
-nom:  Inscrire Votre nom   id:  1118   score:  3200
-nom:  Inscrire Votre nom   id:  1119   score:  5000
-nom:  Inscrire Votre nom   id:  1120   score:  23000
-nom:  Inscrire Votre nom   id:  1121   score:  1000000
-nom:  Inscrire Votre nom   id:  1122   score:  809100
-nom:  Inscrire Votre nom   id:  1123   score:  500
-nom:  Inscrire Votre nom   id:  1124   score:  991000
-nom:  Inscrire Votre nom   id:  1125   score:  810000
-nom:  Inscrire Votre nom   id:  1127   score:  1000000
-nom:  Inscrire Votre nom   id:  1128   score:  500
-nom:  Inscrire Votre nom   id:  1129   score:  53600
-nom:  Inscrire Votre nom   id:  1131   score:  999100
-nom:  Inscrire Votre nom   id:  1132   score:  500
-nom:  Inscrire Votre nom   id:  1133   score:  999100
-nom:  Inscrire Votre nom   id:  1136   score:  1000000
-nom:  Inscrire Votre nom   id:  1137   score:  999100
-nom:  Inscrire Votre nom   id:  1138   score:  1400
-nom:  Inscrire Votre nom   id:  1140   score:  1000000
-nom:  Inscrire Votre nom   id:  1141   score:  1000000
-nom:  Inscrire Votre nom   id:  1142   score:  2300
-nom:  Inscrire Votre nom   id:  1143   score:  2300
-nom:  nom joueur 1   id:  1145   score:  500
-nom:  nom joueur 1   id:  1146   score:  3200
-nom:  nom joueur 1   id:  1147   score:  500
-nom:  nom joueur 1   id:  1148   score:  1400
-nom:  nom joueur 1   id:  1149   score:  1400
-nom:  nom joueur 1   id:  1150   score:  2300
-nom:  nom joueur 1   id:  1151   score:  500
-nom:  nom joueur 1   id:  1152   score:  1400
-nom:  nom joueur 1   id:  1153   score:  500
-nom:  nom joueur 1   id:  1154   score:  500
-nom:  nom joueur 1   id:  1155   score:  1400
-nom:  nom joueur 1   id:  1156   score:  1400
-nom:  nom joueur 1   id:  1157   score:  2300
-nom:  nom joueur 1   id:  1158   score:  1400
-nom:  nom joueur 1   id:  1162   score:  500
-nom:  nom joueur 2   id:  1163   score:  500
-nom:  nom joueur 1   id:  1164   score:  500
-nom:  nom joueur 2   id:  1165   score:  500
-nom:  nom joueur 1   id:  1168   score:  2300
-nom:  nom joueur 2   id:  1169   score:  1400
-nom:     id:  1172   score:  500
-nom:     id:  1173   score:  500
-nom:     id:  1174   score:  1400
-nom:     id:  1175   score:  1400
-nom:     id:  1176   score:  500
-nom:     id:  1177   score:  500
-nom:  houcine   id:  1178   score:  1400
-nom:  abc   id:  1179   score:  32000
-nom:  def   id:  1180   score:  14000
-nom:  aa   id:  1182   score:  2300
-nom:     id:  1183   score:  500
-nom:     id:  1184   score:  500
-nom:     id:  1185   score:  500
-nom:     id:  1186   score:  500
-nom:     id:  1188   score:  500
-nom:     id:  1189   score:  500
-nom:     id:  1190   score:  500
-nom:     id:  1191   score:  2300
-nom:     id:  1192   score:  2300
-nom:     id:  1193   score:  500
-nom:     id:  1194   score:  5000
-nom:     id:  1195   score:  1400
-nom:     id:  1196   score:  500
-nom:     id:  1199   score:  5000
-nom:     id:  1200   score:  2300
-nom:     id:  1201   score:  500
-nom:     id:  1202   score:  500
-nom:     id:  1203   score:  2300
-nom:     id:  1204   score:  500
-nom:     id:  1205   score:  1400
-nom:     id:  1206   score:  500
-nom:     id:  1207   score:  5000
-nom:     id:  1208   score:  41000
+nom:  playerk   id:  1256   score:  1400
+nom:  playerM   id:  1257   score:  2300
+nom:  Gg   id:  1258   score:  1400
+nom:  Pp   id:  1259   score:  500
+nom:  player 100   id:  1260   score:  2300
+nom:  player 200   id:  1261   score:  1400
+nom:     id:  1262   score:  0
+nom:     id:  1263   score:  0
+nom:     id:  1264   score:  0
+nom:     id:  1265   score:  0
+nom:     id:  1266   score:  0
+nom:     id:  1267   score:  0
+nom:     id:  1268   score:  0
+nom:     id:  1269   score:  0
+nom:     id:  1270   score:  0
+nom:     id:  1271   score:  0
+nom:     id:  1272   score:  0
+nom:     id:  1273   score:  0
+nom:     id:  1274   score:  0
+nom:     id:  1275   score:  0
+nom:     id:  1276   score:  0
+nom:     id:  1277   score:  0
+nom:     id:  1279   score:  0
+nom:     id:  1280   score:  0
+nom:     id:  1281   score:  0
+nom:     id:  1282   score:  0
+nom:     id:  1287   score:  0
+nom:     id:  1289   score:  0
+nom:     id:  1290   score:  0
+nom:     id:  1291   score:  0
+nom:     id:  1292   score:  0
+nom:     id:  1293   score:  0
+nom:     id:  1294   score:  0
+nom:     id:  1295   score:  0
+nom:     id:  1296   score:  0
+nom:  playerAA   id:  1297   score:  0
+nom:  playerBB   id:  1298   score:  0
+nom:  A   id:  1299   score:  0
+nom:  B   id:  1300   score:  0
+nom:  1111   id:  1301   score:  0
+nom:  2222   id:  1302   score:  0
+nom:  ccc   id:  1303   score:  0
+nom:  1000   id:  1304   score:  0
+nom:  1100   id:  1305   score:  0
+nom:  azerty   id:  1306   score:  0
+nom:  qwerty   id:  1307   score:  0
+nom:  abc   id:  1308   score:  0
+nom:  def   id:  1309   score:  0
+nom:     id:  1310   score:  0
+nom:     id:  1311   score:  0
+nom:     id:  1312   score:  0
+nom:     id:  1313   score:  0
+nom:     id:  1314   score:  0
+nom:     id:  1315   score:  0
+nom:     id:  1318   score:  0
+nom:     id:  1319   score:  0
+nom:  wiem   id:  1320   score:  0
+nom:  hejer   id:  1321   score:  0
+nom:     id:  1322   score:  0
+nom:     id:  1323   score:  0
+nom:  wiem   id:  1324   score:  0
+nom:  hejer   id:  1325   score:  0

@@ -1,4 +1,3 @@
-
 #ifndef __WX_BACKGROUND_BITMAP_H__
 #define __WX_BACKGROUND_BITMAP_H__
 
@@ -7,6 +6,7 @@
 #endif
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
+#include "wx/wxprec.h"
 #include <wx/frame.h>
 #include <wx/bitmap.h>
 #include <wx/event.h>

@@ -44,6 +44,7 @@ private:
 	wxTimer* datetime;
 	wxMediaCtrl* Sound = nullptr;
 	wxMediaCtrl* clap = nullptr;
+
 	wxStaticBitmap* fleche_img;
 
 
@@ -54,7 +55,7 @@ public:
 	void onnext(wxCommandEvent& evt);
 	void temps(wxCommandEvent& evt);
 	void onclose(wxCloseEvent&);
-	void addsecond(wxTimerEvent& evt);
+	void chrono(wxTimerEvent& evt);
 	wxString inttotime(int);
 	void oncinquante(wxCommandEvent& evt);
 	void onswitch(wxCommandEvent& evt);

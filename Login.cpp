@@ -42,7 +42,7 @@ Login::Login(int mode) : wxFrame(nullptr, wxID_ANY, "Inscription", wxPoint(300, 
 	{
 		wxInitAllImageHandlers();
 		wxBitmap TempBitmap;
-		TempBitmap.LoadFile(wxT("login.jpg"), wxBITMAP_TYPE_JPEG);
+		TempBitmap.LoadFile(wxT("login2.jpg"), wxBITMAP_TYPE_JPEG);
 
 		background* bg = new background(TempBitmap);
 		this->PushEventHandler(bg);
@@ -57,13 +57,13 @@ Login::Login(int mode) : wxFrame(nullptr, wxID_ANY, "Inscription", wxPoint(300, 
 		bouton_startgame->SetForegroundColour(wxColor(255, 255, 255));
 		bouton_startgame->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-		champs_nom = new wxTextCtrl(this, 3003, wxEmptyString, wxPoint(400, 395), wxSize(250, 44), wxBORDER_NONE);
+		champs_nom = new wxTextCtrl(this, 3003, wxEmptyString, wxPoint(250, 395), wxSize(250, 44), wxBORDER_NONE);
 		champs_nom->SetHint("Nom du joueur 1");
 		champs_nom->SetBackgroundColour(wxColor(0, 0, 0));
 		champs_nom->SetForegroundColour(wxColor(255, 255, 255));
 		champs_nom->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-		champs_nom2 = new wxTextCtrl(this, 3004, wxEmptyString, wxPoint(100, 495), wxSize(250, 44), wxBORDER_NONE);
+		champs_nom2 = new wxTextCtrl(this, 3004, wxEmptyString, wxPoint(600, 395), wxSize(250, 44), wxBORDER_NONE);
 		champs_nom2->SetHint("Nom du joueur 2");
 		champs_nom2->SetBackgroundColour(wxColor(0, 0, 0));
 		champs_nom2->SetForegroundColour(wxColor(255, 255, 255));

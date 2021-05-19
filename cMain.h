@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CMAIN_H
+#define CMAIN_H
 #include "wx/wx.h"
 #include "Login.h"
 #include "FenetreJoueur.h"
@@ -9,9 +11,9 @@
 class cMain : public wxFrame
 {
 private:
-	FenetreJoueur* FenetreJoueur_frame = nullptr;
-	Login* loginframe = nullptr;
-	FenetreInstructions* Instructions_frame = nullptr;
+	FenetreJoueur* FenetreJoueur_frame = nullptr ;
+	Login* loginframe = nullptr ;
+	FenetreInstructions* Instructions_frame = nullptr ;
 
 	// Controls
 	wxButton* bouton_liste_joueurs = nullptr;
@@ -21,7 +23,7 @@ private:
 	wxButton* btn_login2 = nullptr;
 
 
-	
+
 public:
 	cMain();
 	~cMain();
@@ -35,3 +37,4 @@ public:
 
 	wxDECLARE_EVENT_TABLE();
 };
+#endif

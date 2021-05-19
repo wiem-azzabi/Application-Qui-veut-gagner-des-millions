@@ -1,32 +1,32 @@
 #include "cMain.h"
 
 
-wxBEGIN_EVENT_TABLE(cMain, wxFrame)
- EVT_BUTTON(1000, onexit)
- EVT_BUTTON(101, onlogin)
+wxBEGIN_EVENT_TABLE(cMain, wxFrame)//tableau d evenement (cMain herite de wxFrame)
+EVT_BUTTON(1000, onexit)
+EVT_BUTTON(101, onlogin)
 EVT_BUTTON(102, onlogin)
- EVT_BUTTON(1002, onclick_liste_joueurs)
- EVT_BUTTON(1003, onclick_instructions)
- EVT_CLOSE(cMain::onclose)
+EVT_BUTTON(1002, onclick_liste_joueurs)
+EVT_BUTTON(1003, onclick_instructions)
+EVT_CLOSE(cMain::onclose)
 wxEND_EVENT_TABLE()
 
-cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Qui veut gagner des millions?", wxPoint(300, 100), wxSize(1000, 700)) 
+cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Qui veut gagner des millions?", wxPoint(300, 100), wxSize(1000, 700))
 {
 	wxInitAllImageHandlers();
-	wxBitmap TempBitmap;
+	wxBitmap TempBitmap;// creation d un objet image 
 	TempBitmap.LoadFile(wxT("pageloula.jpg"), wxBITMAP_TYPE_JPEG);
 
-	background* bg = new background(TempBitmap);
-	this->PushEventHandler(bg);
-	
+	background* bg = new background(TempBitmap);//pointeur sur background 
+	this->PushEventHandler(bg);//appel a la methode qui permet d avoir le background 
 
 
-	btn_login = new wxButton(this, 101, "Jouer", wxPoint(415, 390), wxSize(160, 40), wxBORDER_NONE);
+
+	btn_login = new wxButton(this, 101, "Jouer", wxPoint(415, 405), wxSize(160, 40), wxBORDER_NONE);
 	btn_login->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	btn_login->SetBackgroundColour(wxColor(0, 0, 0));
 	btn_login->SetForegroundColour(wxColor(255, 255, 255));
 
-	btn_login2 = new wxButton(this, 102, "Jouer en deux", wxPoint(700, 390), wxSize(160, 40), wxBORDER_NONE);
+	btn_login2 = new wxButton(this, 102, "Jouer en deux", wxPoint(415, 330), wxSize(160, 40), wxBORDER_NONE);
 	btn_login2->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	btn_login2->SetBackgroundColour(wxColor(0, 0, 0));
 	btn_login2->SetForegroundColour(wxColor(255, 255, 255));
@@ -41,7 +41,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Qui veut gagner des millions?", wxP
 	bouton_instructions->SetBackgroundColour(wxColor(0, 0, 0));
 	bouton_instructions->SetForegroundColour(wxColor(255, 255, 255));
 
-	exit = new wxButton(this, 1000, "Exit", wxPoint(750, 600), wxSize(100, 40), wxBORDER_NONE);
+	exit = new wxButton(this, 1000, "Quitter", wxPoint(750, 600), wxSize(100, 40), wxBORDER_NONE);
 	exit->SetFont(wxFont(17, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	exit->SetBackgroundColour(wxColor(0, 0, 0));
 	exit->SetForegroundColour(wxColor(255, 255, 255));
@@ -64,10 +64,10 @@ void cMain::onexit(wxCommandEvent& evt) {
 
 
 void cMain::onlogin(wxCommandEvent& evt) {
-	loginframe = new Login(evt.GetId()-100); //constructeur de Login
+	loginframe = new Login(evt.GetId() - 100); //constructeur de Login
 	loginframe->Show();
 	this->Close();
-	
+
 }
 
 
@@ -75,19 +75,18 @@ void cMain::onclick_liste_joueurs(wxCommandEvent& evt) {
 	FenetreJoueur_frame = new FenetreJoueur();
 	FenetreJoueur_frame->Show();
 	this->Close();
-	
+
 }
 
 void cMain::onclick_instructions(wxCommandEvent& evt) {
 	Instructions_frame = new FenetreInstructions();
 	Instructions_frame->Show();
 	this->Close();
-	
+
 }
 
-void cMain::onclose(wxCloseEvent& event)
+void cMain::onclose(wxCloseEvent& event) //fermeture de la fenetre avec la croix rouge
 {
-	//Rewrite these lines whenever this window is about to close. "Exit button ..."
 	Destroy();
 	this->PopEventHandler(true);
 }

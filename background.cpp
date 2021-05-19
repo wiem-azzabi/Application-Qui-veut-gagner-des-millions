@@ -1,7 +1,5 @@
 #include "background.h""
 #include <wx/dcbuffer.h>
-
-
 bool background::ProcessEvent(wxEvent& Event)
 {
     if (Event.GetEventType() == wxEVT_ERASE_BACKGROUND)

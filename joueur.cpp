@@ -37,6 +37,8 @@ void joueur::setscore(int& a)///***
 {
     switch (a)
     {
+    case 0:
+    {score = 0; break; }
     case 1:
     {score = 500; break; }
     case 2:

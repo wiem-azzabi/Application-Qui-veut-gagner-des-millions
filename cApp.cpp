@@ -7,7 +7,7 @@ cApp::cApp()
 cApp::~cApp()
 {
 }
-bool cApp::OnInit()
+bool cApp::OnInit() //demarage u prog similaire au main en c++
 {
 	m_frame1 = new cMain();
 	m_frame1->Show();
