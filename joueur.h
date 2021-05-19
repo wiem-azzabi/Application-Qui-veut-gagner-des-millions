@@ -31,7 +31,6 @@ class joueur
 
     string getnom() const;
 	int getscore() const;
-	void afficher() const;
 
 	bool verif(const int&)const;
     void settabjocker(const int&);

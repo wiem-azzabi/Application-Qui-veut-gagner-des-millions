@@ -2,7 +2,6 @@
 #include <string.h>
 #include <string>
 #include <iostream>
-#include <cstdlib>//random
 using namespace std;
 
 joueur::joueur(string ch)
@@ -93,7 +92,4 @@ void joueur::settabjocker(const int& x)
 	{
 	    return(score);
     }
-	void joueur::afficher() const
-    {
-	cout<<id<<setw(15)<<nom<<setw(10)<<score<<setw(6)<<endl;
-    }
+

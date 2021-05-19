@@ -1,0 +1,53 @@
+*
+a Leonardo DiCaprio :10% b Brad Pitt:40% 
+c Matthew MacConaughey:50% d Tom Cruise:0%
+*
+a Le Rhone:25%  c Le Rhin:30%
+d La Seine:20%  b La Loire:25%
+*
+c Vert:	20%  	d Noir:15% 
+a Rouge:40% 	b Jaune:25%
+*
+a D'un buffle: 	    20%  	d D'un hippopotame : 60%
+c D'un rhinoceros : 0%  	b D'un lion :        20%
+*
+a Sydney :   10% 	b Perth :     20% 
+c Canberra : 50 % 	d Melbourne : 20%
+*
+a Environ 5108 m : 30%    b Environ 3808 m : 20%  
+c Environ 4808 m : 40%    d Environ 4208 m : 10 %
+*
+c 2004 : 15%      d 2007 : 35%
+a 2006 : 10 %     b 2005 : 40%
+*
+c La Siberie : 10%      d L'Inde : 40%
+a L'Amerique : 35 %     b Le Moyen-Orient: 25 %
+*
+On écrit des … 
+a coffres-fort:20%      c coffre-forts:17%
+b coffre-fort: 10%      d coffres-forts: 53%
+*
+Que contient la bosse d’un chameau ou d’un dromadaire ? 
+a Des muscles:   26%    b De l'eau :        35%
+c De la graisse :27%    d De la nourriture: 12%
+*
+Quel chanteur américain est assassiné par son père en 1984 ? 
+d Ottis Redding: 27%      c Jimi Hendrix: 23%
+a Marvin Gaye:   16%      b Elvis Presley:34%
+*
+Quelle est la capitale du Brésil ? 
+a Rio de Janeiro: 10%    c São Paulo: 26%
+b Petropolis:     4%     d Brasilia:  60%
+*
+De quelle couleur sont les fleurs de jonquilles ? 
+a Violettes: 33%       c Rouge: 25%
+b Jaunes:    36%       d Bleues:6%
+*
+Dans quelle oeuvre de Shakespeare trouve-t-on la réplique : « Un cheval ! Un cheval ! Mon royaume pour un cheval ! » 
+a Le Roi Lear:          7%      b Hamlet:      26% 
+c Comme il vous plaira:12%      d Richard III: 55%
+*
+De quel pays Salazar était-il le dictateur ? 
+a Du Brésil : 32%     b De l'Espagne: 24%
+c Du Portugal:14%     d Du Pérou:     30%
+*
